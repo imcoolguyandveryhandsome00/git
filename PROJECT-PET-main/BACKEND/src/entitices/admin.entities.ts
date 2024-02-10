@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, OneToOne, JoinColumn,ManyToOne,ManyToMany,OneToMany} from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn} from "typeorm";
 
 
 @Entity()

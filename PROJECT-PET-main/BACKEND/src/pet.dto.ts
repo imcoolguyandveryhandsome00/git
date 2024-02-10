@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsNotEmpty, IsString } from "class-validator";
+import { IsNotEmpty, IsString, IsNumberString, Length,Matches,IsAlphanumeric} from "class-validator";
 import { Admin } from "typeorm";
 
 export class CreatePetDTO {
@@ -133,16 +133,21 @@ export class UpdateUserDTO{
 export class CreateAdminDTO{
 
     @IsNotEmpty()
-    password : string;
+    @IsAlphanumeric()
+    @Matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,20}$/, { message: 'Password must contain at least one digit, one lowercase, and one uppercase letter.' })
+    @Length(8, 20, { message: 'Password must be between 8 and 20 characters.' })
+    password: string;
+  
+    @IsNotEmpty()
+    @IsNumberString()
+    @Length(10, 10, { message: 'Phone number must be exactly 10 digits.' })
+    phone: string;
 
     @IsNotEmpty()
     username : string;
 
     @IsNotEmpty()
     Email : string;   
-
-    @IsNotEmpty()
-    phone : string;
 
     @IsNotEmpty()
     @IsString()
@@ -152,7 +157,15 @@ export class CreateAdminDTO{
 export class UpdateAdminDTO{
    
     @IsNotEmpty()
-    password : string;
+    @IsAlphanumeric()
+    @Matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,20}$/, { message: 'Password must contain at least one digit, one lowercase, and one uppercase letter.' })
+    @Length(8, 20, { message: 'Password must be between 8 and 20 characters.' })
+    password: string;
+  
+    @IsNotEmpty()
+    @IsNumberString()
+    @Length(10, 10, { message: 'Phone number must be exactly 10 digits.' })
+    phone: string;
 
     @IsNotEmpty()
     username : string;
@@ -161,11 +174,16 @@ export class UpdateAdminDTO{
     Email : string;   
 
     @IsNotEmpty()
-    phone : string;
-
-    @IsNotEmpty()
     @IsString()
     roles: string[];
 } 
+
+export default class CreateSendNotification{
+    @IsNotEmpty()
+    @IsString()
+    title:string;
+    
+    
+}
 
 
