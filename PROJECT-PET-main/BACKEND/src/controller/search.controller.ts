@@ -10,14 +10,16 @@ export class SearchController {
   constructor(private readonly searchService: SearchService) {}
 
   @Get()
-  search(@Query('query') query: string): any[] {
+  search(@Query('query') query: string): Promise<any[]> {
     return this.searchService.search(query);
   }
 
   @Get('index')
   getIndex(): Promise<Pet[]> {
-    return this.searchService.findALL();
+    return this.searchService.findAll();
   }
+  
+  
    
   @Get(':id')
   getPetById(@Param('id') id: number): Promise<Pet> {

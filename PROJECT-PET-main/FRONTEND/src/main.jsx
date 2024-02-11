@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import Home from './page/home.jsx'
 import Pet from './page/pet.jsx'
-import Accommodation from './page/accommodation.jsx'
 import Status from './page/status.jsx'
+import Profile from './page/profile.jsx'
+import Order from './page/order.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 
@@ -14,26 +15,34 @@ const router = createBrowserRouter([
     element: <App />
   },
   {
-    path: "home",
+    path: "/home",
     element: <Home />
   },
   {
-    path: "pet",
+    path: "/pet",
     element: <Pet />
   },
   {
-    path: "accommodation",
-    element: <Accommodation />
+    path: "/status",
+    element: <Status />
   },
   {
-    path: "status",
-    element: <Status />
+    path: "/Profile",
+    element: <Profile />
+  },
+  {
+    path: "/order",
+    element: <Order />
   }
-
+  
 ]) 
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router}>
+      <App />
+    </RouterProvider>
   </React.StrictMode>,
-)
+);
+

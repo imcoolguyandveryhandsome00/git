@@ -6,24 +6,6 @@ import Google from './assets/google.svg'
 import Facebook from './assets/facebook.svg'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
-import axios from 'axios';
-
-axios.post('http://localhost:2000/auth/login')
-  .then(response => {
-    console.log(response.data);
-  })
-  .catch(error => {
-    console.error('Error fetching data:', error);
-  });
-
-axios.post('http://localhost:2000/auth/login', { userName: ' ', password:'' })
-  .then(response => {
-    console.log('Data sent successfully:', response.data);
-  })
-  .catch(error => {
-    console.error('Error sending data:', error);
-  });
-
 
 function App() {
 

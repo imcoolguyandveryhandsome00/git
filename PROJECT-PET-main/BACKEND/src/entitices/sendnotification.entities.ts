@@ -10,7 +10,6 @@ export default class SendNotification {
 
     @Column()
     title: string;
-
     @Column()
     date: Date;
 

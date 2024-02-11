@@ -31,6 +31,15 @@ Content-Type: application/json
     "status" : "ready"
 }
 ###
+POST {{baseUrl}}/pet
+Content-Type: application/json
+
+{
+     "name" : "กีกี้",
+    "type" : "ไก่",
+    "price" : 15,
+    "status" : "ready"
+}
 
 GET {{baseUrl}}/pet
 ###

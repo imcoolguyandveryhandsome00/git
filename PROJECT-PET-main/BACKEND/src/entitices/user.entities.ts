@@ -14,6 +14,9 @@ export default class User extends PetBaseEntity {
     password : string;
 
     @Column()
+    email :  string;
+
+    @Column()
     address : string;
 
     @Column()

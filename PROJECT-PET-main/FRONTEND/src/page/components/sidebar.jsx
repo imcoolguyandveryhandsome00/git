@@ -1,13 +1,19 @@
 import { Link } from 'react-router-dom'
-import { FaAngleRight, FaRegUser, FaClipboardList, FaPlane, FaCog, FaAngleLeft } from 'react-icons/fa';
+import { FaAngleRight, FaClipboardList, FaPlane, FaAngleLeft } from 'react-icons/fa';
 import { useState } from 'react';
 import './sidebar.css'
 
+
 function sidebar() {
 
-    const [showMenu,setShowMenu] = useState(false)
-    const toggleMenu = ()=>setShowMenu(!showMenu)
-
+    const [showMenu,setShowMenu] = useState(false);
+    const togglePlane = ()=> {
+    setShowMenu(!showMenu);
+    };
+    const [showOrder,setShowOrder] = useState(false);
+    const  toggleClipboardlist  =() => {
+    setShowOrder(!showOrder);
+    };
   return (
     <aside>
         <div className="sidebar">
@@ -16,29 +22,44 @@ function sidebar() {
                     <FaAngleRight />
                 </Link>
                 <Link to='#'>
-                    <FaRegUser />
+                    <FaClipboardList onClick={toggleClipboardlist}/>
                 </Link>
                 <Link to='#'>
-                    <FaClipboardList />
+                    <FaPlane onClick={togglePlane}/>
                 </Link>
-                <Link to='#'>
-                    <FaPlane onClick={toggleMenu}/>
-                </Link>
-                <Link to='#'>
-                    <FaCog />
-                </Link>
+
             </div>
+        </div>
+        <div className={showOrder ? "sidebar-menu active" : "sidebar-menu"} >
+            <ul className="bar-menu-item">
+                <li className="sidebar-toggle-close">
+                    <Link to='#' className='menu-bar'>
+                        <FaAngleLeft onClick={toggleClipboardlist} style={{fontSize: '1.5em'}}/>
+                        <span>Recipe</span>
+                    </Link>
+                </li>
+                <li className='menu-text'>
+                    <Link to='/order'> 
+                        <span><p>Order</p></span>
+                    </Link>
+                </li>
+                <li className='menu-text'>
+                    <Link to='/order'> 
+                        <span><p> Cancel order</p></span>
+                    </Link>
+                </li>
+            </ul>
         </div>
         <div className={showMenu ? "sidebar-menu active" : "sidebar-menu"} >
             <ul className="bar-menu-item">
                 <li className="sidebar-toggle-close">
                     <Link to='#' className='menu-bar'>
-                        <FaAngleLeft onClick={toggleMenu} style={{fontSize: '1.5em'}}/>
+                        <FaAngleLeft onClick={togglePlane} style={{fontSize: '1.5em'}}/>
                         <span>Shipping</span>
                     </Link>
                 </li>
                 <li className='menu-text'>
-                    <Link to='#'> 
+                    <Link to='/status'> 
                         <span><p>status</p></span>
                     </Link>
                 </li>

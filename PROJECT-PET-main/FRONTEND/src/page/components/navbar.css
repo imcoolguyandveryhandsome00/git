@@ -47,7 +47,36 @@
 .dropdown:hover .dropdown-content {
     display: block;
 }
+.dropdown-content a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 8px;  /* เพิ่มระยะห่างระหว่างรายการ */
+}
 
+.dropdown-content a:hover {
+    background-color: #6394B1;  /* เปลี่ยนสีเมื่อ hover */
+}
+
+/* navbar.css */
+
+.profile-dropdown .profile-dropdown {
+    width: 150px; /* ปรับความกว้างตามต้องการ */
+  }
+  
+  .profile-dropdown img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+  }
+  
+  .profile-dropdown p {
+    margin: 0;
+    padding: 5px;
+  }
+  
 /*******************************************************************/
 
 .search-box {

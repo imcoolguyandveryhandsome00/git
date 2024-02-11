@@ -45,7 +45,7 @@ export class UserController {
   }
 
   @Roles(Role.Admin)
-  @Get('onluadmin')
+  @Get('onlyadmin')
   onlyadmin(){
     return 'Only Admin';
   }

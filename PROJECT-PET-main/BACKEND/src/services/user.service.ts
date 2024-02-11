@@ -72,6 +72,7 @@ function isValidPhone(phone: string): boolean {
         usertoUpdate.first_name = update.first_name;
         usertoUpdate.last_name = update.last_name;
         usertoUpdate.username = update.username;
+        usertoUpdate.email = update.email;
         usertoUpdate.password = update.password;
         usertoUpdate.phone = update.phone;
         usertoUpdate.address = update.address;

@@ -92,6 +92,9 @@ export class CreateUserDTO{
     last_name : string;
 
     @IsNotEmpty()
+    email : string;
+
+    @IsNotEmpty()
     phone : string;
 
     @IsNotEmpty()
@@ -117,6 +120,9 @@ export class UpdateUserDTO{
 
     @IsNotEmpty()
     last_name : string;
+
+    @IsNotEmpty()
+    email : string;
 
     @IsNotEmpty()
     phone : string;

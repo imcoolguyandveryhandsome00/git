@@ -2,6 +2,7 @@ import { Controller, Get ,Query } from'@nestjs/common';
 import { AppService } from './app.service';
 import { ConfigService } from '@nestjs/config';
 import { SearchService } from './services/search.service';
+import Pet from './entitices/pet.entities';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService,private configService: ConfigService ,private readonly searchService: SearchService ) {}
@@ -23,8 +24,7 @@ export class AppController {
   }
   
   @Get()
-  search(@Query('query') query: string): any[] {
-    return this.searchService.search(query);
+  search(@Query('query') query: string): Promise<Pet[]> {
+    return this.searchService.search(query).then(result => result);
   }
-  
 }
