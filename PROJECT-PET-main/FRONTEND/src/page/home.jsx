@@ -30,13 +30,13 @@ function home() {
         </div>
       </div>
     </section>
-    <div className="content-box">
-      <div className="petacc-box">
-        <div className="path"><Link to='/accommodation'>PET ACCOMMODATION</Link></div>
-      </div>
-      <div className="status-box">
-        <div className="path"><Link to='/status'>TRACK PET STATUS</Link></div>
-      </div>
+    <div className='photo'>
+      <img id='photo1' src='./src/assets/photo1.jpg' />
+      <img id='photo1' src='./src/assets/photo2.jpg' />
+      <img id='photo1' src='./src/assets/photo3.jpg' />
+      <img id='photo1' src='./src/assets/photo4.jpg' />
+      <img id='photo1' src='./src/assets/photo5.jpg' />
+      <img id='photo1' src='./src/assets/photo5.jpg' />
     </div>
     </>
   )

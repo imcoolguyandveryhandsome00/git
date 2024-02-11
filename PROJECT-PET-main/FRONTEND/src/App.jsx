@@ -6,9 +6,9 @@ import Google from './assets/google.svg'
 import Facebook from './assets/facebook.svg'
 import { Link } from 'react-router-dom'
 import { useState } from 'react';
-
+import status from './page/status';
 function App() {
-
+  
   const [userName, setUserName] = useState("")
   const [password, setPassword] = useState("")
 

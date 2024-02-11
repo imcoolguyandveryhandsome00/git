@@ -38,7 +38,7 @@ function Profile  () {
       </div>
     </div>
     < div className="save">
-        <button>Save</button>
+        <Link to='/home'><button>Save</button></Link>
         </div>
         </section>
         </div>

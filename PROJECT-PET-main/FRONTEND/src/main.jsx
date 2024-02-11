@@ -23,16 +23,16 @@ const router = createBrowserRouter([
     element: <Pet />
   },
   {
-    path: "/status",
-    element: <Status />
-  },
-  {
     path: "/Profile",
     element: <Profile />
   },
   {
     path: "/order",
     element: <Order />
+  },
+  {
+    path: "/status",
+    element: <Status/>
   }
   
 ]) 

@@ -12,8 +12,8 @@ export class CreatePetDTO {
     @IsNotEmpty()
     type : string;
 
-    // @IsNotEmpty()
-    // ownerId : number;
+    @IsNotEmpty()
+    ownerId : number;
 
     @IsNotEmpty()
     status : string;
@@ -131,9 +131,6 @@ export class UpdateUserDTO{
     @IsString()
     roles: string[];
 
-
-    @IsNotEmpty()
-    is_admin : boolean;
 }
 
 export class CreateAdminDTO{

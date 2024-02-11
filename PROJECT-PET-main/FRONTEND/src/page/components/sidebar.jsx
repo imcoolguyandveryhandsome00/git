@@ -59,7 +59,7 @@ function sidebar() {
                     </Link>
                 </li>
                 <li className='menu-text'>
-                    <Link to='/status'> 
+                    <Link to='/Status'> 
                         <span><p>status</p></span>
                     </Link>
                 </li>

@@ -20,16 +20,15 @@ function Navbar() {
         <li className="dropdown">
           <span><Link to='#'>SERVICE<BsCaretDownFill /></Link></span>
           <div className="dropdown-content">
-            <Link to='/home'><p>Home</p></Link>
             <Link to='/pet'><p>Pet</p></Link>
             <Link to='/status'><p>Status</p></Link>
           </div>
 
         </li>
         <li className='dropdown'>
-          <span><Link to='status'><FaBell style={{ fontSize: '1.5em' }} /></Link></span>
+          <span><Link to='/status'><FaBell style={{ fontSize: '1.5em' }} /></Link></span>
           <div className="dropdown-content">
-          <Link to='/notifications'><p>Notification</p></Link>
+          <Link to='/order'><p>Notification</p></Link>
           </div>
         </li>
 
@@ -42,7 +41,8 @@ function Navbar() {
         className="profile-image"
       />
       <div>
-        <Link to='/'><p>Edit Profile</p></Link>
+        <Link to='/profile'><p>Edit Profile</p></Link>
+
         <Link to='/'><p>Log out</p></Link>
       </div>
     </div>
