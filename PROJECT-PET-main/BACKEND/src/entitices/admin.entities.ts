@@ -1,21 +1,22 @@
-import { Type } from "class-transformer";
-import { Entity, Column, PrimaryGeneratedColumn} from "typeorm";
+import User from "./user.entities";
+import { Column, Entity, PrimaryColumn} from "typeorm";
 
 
 @Entity()
-export default class Admin{
-    @PrimaryGeneratedColumn()
-    id: Number;
-
+export default class Admin {
+    @PrimaryColumn()
+    id : number;
+    
     @Column()
     username : string;
-
-    @Column()
-    password : string;
 
     @Column()
     email : string;
 
     @Column()
-    phone : string
+    password : string;
+
+    @Column()
+    phone : string;
+   
 }

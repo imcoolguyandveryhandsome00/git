@@ -6,6 +6,7 @@ import Pet from './page/pet.jsx'
 import Status from './page/status.jsx'
 import Profile from './page/profile.jsx'
 import Order from './page/order.jsx'
+import ShippingStatus from './page/shipping.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider} from 'react-router-dom'
 
@@ -33,8 +34,12 @@ const router = createBrowserRouter([
   {
     path: "/status",
     element: <Status/>
+  },
+  {
+    path: "/shippingstatus",
+    element: <ShippingStatus/>
   }
-  
+
 ]) 
 
 

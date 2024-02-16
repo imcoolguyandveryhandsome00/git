@@ -189,4 +189,9 @@ export default class CreateSendNotification{
     
 }
 
+export class CreateSendNotificationDto {
+    @IsNotEmpty()
+    @IsString()
+    user: string; 
 
+}

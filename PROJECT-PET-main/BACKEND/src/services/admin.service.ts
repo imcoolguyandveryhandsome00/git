@@ -2,14 +2,13 @@ import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateAdminDTO,UpdateAdminDTO } from "src/pet.dto";
-import Admin from '../entitices/admin.entities'
- 
+import Admin from "src/entitices/admin.entities";
 @Injectable()
 export class AdminService {
  
     constructor(
         @InjectRepository(Admin)
-        private adminRepository: Repository<Admin>
+        private adminRepository: Repository<Admin>,
     ) {}
  
     async findALL(): Promise<Admin[]> {
@@ -17,31 +16,49 @@ export class AdminService {
     }
  
 
-    async findOne(id: number): Promise<Admin | null> {
-        return await this.adminRepository.findOne({where: { id:id}});
-    }
-    
-    
-    async create(admin : CreateAdminDTO) : Promise<Admin | null> {
+    findOne(id: number): Promise<Admin | null> {
+        return this.adminRepository.findOne({ where: { id: id } });
+      }  
+      creat(admin : CreateAdminDTO) : Promise<Admin | null>{
         return this.adminRepository.save(admin);
-    }
- 
-    async update(update: UpdateAdminDTO,id: number): Promise<Admin | null> {
-        const updateToAdmin = await this.adminRepository.findOne({where: { id:id}})
-        if(!updateToAdmin){
-            throw new NotFoundException('Error')
+      }
+    
+    async updateAdmin(id: number, update: UpdateAdminDTO): Promise<Admin | null> {
+        const adminToUpdate = await this.adminRepository.findOne({ where: { id: id } });
+        if (!adminToUpdate) {
+            throw new NotFoundException('Admin not found');
         }
-        updateToAdmin.username = update.username;
-        updateToAdmin.email = update.Email ;
-        updateToAdmin.password = update.password ;
-        updateToAdmin.phone = update.phone ;
-
-
-        return await this.adminRepository.save(updateToAdmin);
+    
+        // ทำการอัปเดตข้อมูล
+        adminToUpdate.username = update.username;
+        adminToUpdate.email = update.Email;
+        adminToUpdate.password = update.password;
+        adminToUpdate.phone = update.phone;
+    
+        // บันทึกข้อมูล
+        await this.adminRepository.save(adminToUpdate);
+    
+        // ส่งข้อมูล Admin ที่ถูกอัปเดตกลับ
+        return adminToUpdate;
     }
     
-    async deleteById(id: number): Promise<void> {
-        await this.adminRepository.delete(id);
+    async deleteQuryBuilder(id: number): Promise<void> {
+        const adminToDelete = await this.adminRepository.findOne({ where: { id: id } });
+     
+        if (!adminToDelete) {
+          throw new NotFoundException('Admin not found');
+        }
+     
+        await this.adminRepository.remove(adminToDelete);
+        const deletedAdmin = await this.adminRepository.findOne({ where: { id: id } });
+     
+        if (deletedAdmin) {
+          console.log('Admin deleted successfully');
+        } else {
+          console.log('Admin not found after deletion')
+        }
+      }
+     
+    
+     
     }
- 
-}

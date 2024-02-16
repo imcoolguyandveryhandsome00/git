@@ -23,11 +23,14 @@ import { APP_GUARD } from '@nestjs/core';
 // import { AuthGuard } from './auth/auth.guard';
 import { RolesGuard } from './auth/roles.guard';
 import { SearchService } from './services/search.service';
-import { StatusController } from './controller/status.controller';
+import { StatusController } from './controller/shipping.controller';
 import { StatusService } from './services/status.service';
 import  Admin  from './entitices/admin.entities';
 import { AdminController } from './controller/admin.controller';
 import { AdminService } from './services/admin.service';
+import { IoAdapter } from '@nestjs/platform-socket.io';
+import * as socket from 'socket.io-client';
+import { ShippingService } from './services/shipping.service';
 
 @Module({
   imports: [
@@ -52,8 +55,8 @@ import { AdminService } from './services/admin.service';
     UsersModule
   ],
 
-  controllers: [AppController, PetController, PurchaseOrderController, UserController, PetBaseEntityController,StatusController,AdminController],
-  providers: [AppService, PetService, PurchaseorderService,PetBaseEntityService, UserService,AuthService,StatusService,SearchService,AdminService,
+  controllers: [AppController, PetController, PurchaseOrderController, UserController, PetBaseEntityController,StatusController,AdminController,StatusController],
+  providers: [AppService, PetService, PurchaseorderService,PetBaseEntityService, UserService,AuthService,StatusService,SearchService,AdminService,ShippingService,
   {
     provide: APP_GUARD,
     useClass: RolesGuard,

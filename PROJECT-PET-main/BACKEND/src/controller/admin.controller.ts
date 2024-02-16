@@ -10,8 +10,8 @@ export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 
   @Post()
-  create(@Body() admin: CreateAdminDTO):Promise<Admin> {
-    return this.adminService.create(admin);
+  postCreat(@Body() createAdminDTO : CreateAdminDTO): Promise<Admin>{
+    return this.adminService.creat(createAdminDTO)
   }
 
   @Get()
@@ -25,12 +25,14 @@ export class AdminController {
   }
 
   @Put(':id')
-  update(@Param('id')id: number, @Body() admin: UpdateAdminDTO):Promise<Admin | null> {
-    return this.adminService.update(admin,id);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: number) {
-    return this.adminService.deleteById(id);
+    updateAdmin(@Param('id') id: number, @Body() updateAdminDTO: UpdateAdminDTO): Promise<Admin | null> {
+      return this.adminService.updateAdmin(id, updateAdminDTO);
+    }
+    @Post()
+  
+  @Delete(":id")
+  deleteuserById(@Param('id') id :number) : string{
+    this.adminService.deleteQuryBuilder(id)
+    return "OK,It's done."
   }
 }

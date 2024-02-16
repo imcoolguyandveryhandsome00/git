@@ -25,6 +25,21 @@ export class UserService {
         return this.UserRepository.findOneBy({id:id});
     }
 
+    async createWithId(id : number, createuserDTO : CreateUserDTO) : Promise<User> {
+      const user = new User();
+      user.id = id;
+      user.first_name = createuserDTO.first_name;
+        user.last_name = createuserDTO.last_name;
+        user.username = createuserDTO.username;
+        user.email = createuserDTO.email;
+        user.password = createuserDTO.password;
+        user.phone = createuserDTO.phone;
+        user.address = createuserDTO.address;
+        user.roles = createuserDTO.roles;
+        return await this.UserRepository.save(user)
+
+    }
+
      async create(user : CreateUserDTO) : Promise<User|null> {
         try{
             const errors = await validate(user);
